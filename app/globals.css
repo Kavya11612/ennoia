@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Self-hosted WOFF2 only — no Google Fonts CDN. */
+@font-face {
+  font-family: 'Rethink Sans';
+  src: url('/fonts/RethinkSans-Variable.woff2') format('woff2-variations'),
+    url('/fonts/RethinkSans-Variable.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* §5.1 Colour — locked palette */
+  --c-clay: #c69c72;
+  --c-emboss: #8e6e53;
+  --c-ink: #433e3f;
+  --c-gambit: #7a7265;
+  --c-landing-stone: #c0b7b1;
+  --c-open-board: #f5f1eb;
+  --c-card: #fbf8f3;
+  --c-gambit-text: #746c60;
+  --c-emboss-link: #87684f;
+  --c-clay-on-ink: #d0a478;
+  --c-rule: #e4ded4;
+  --c-error: #8c4a3a;
+
+  --font-rethink: 'Rethink Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-plex-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-instant: 100ms;
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+
+  /* §5.4 page margins */
+  --page-margin: 20px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-margin: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-margin: 64px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  display: block;
+}
+
+body {
+  background-color: var(--c-open-board);
+  color: var(--c-ink);
+  font-family: var(--font-rethink);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--c-clay);
+  color: var(--c-ink);
+}
+
+/* §5.4 — page horizontal margins: 20 / 40 / 64 */
+.page-x {
+  padding-left: var(--page-margin);
+  padding-right: var(--page-margin);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--c-ink);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--c-ink);
+  color: var(--c-open-board);
+  padding: 12px 24px;
+  font-family: var(--font-plex-mono);
+  font-size: 13px;
+}
+.skip-link:focus {
+  left: 24px;
+  top: 24px;
+}
+
+/* Reveal — prefer visible content. Animation is additive via .is-visible only;
+   never leave opacity:0 as the resting SSR/default state (blank-page bug). */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal.js-animate:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
