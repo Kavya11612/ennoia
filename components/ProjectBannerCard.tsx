@@ -13,7 +13,6 @@ export default function ProjectBannerCard({
   index: number;
 }) {
   const surface = getProjectSurface(index);
-  const n = String(index + 1).padStart(2, '0');
 
   return (
     <Link
@@ -26,9 +25,6 @@ export default function ProjectBannerCard({
 
       <div className="relative z-[1] flex w-full flex-col justify-between gap-5 p-5 md:flex-row md:items-end md:gap-6 md:p-6">
         <div className="flex min-w-0 flex-col gap-2">
-          <span className={`font-mono text-[12px] uppercase tracking-[0.16em] ${surface.mute}`}>
-            Project {n}
-          </span>
           <h3 className={`font-sans font-semibold text-h3 max-w-[18ch] text-balance ${surface.ink}`}>
             {project.brandName}
           </h3>

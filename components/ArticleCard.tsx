@@ -15,6 +15,39 @@ function formatDate(iso: string) {
     .toUpperCase();
 }
 
+function ArticleMeta({
+  category,
+  date,
+  mins,
+  showDate,
+}: {
+  category: string;
+  date: string;
+  mins: number;
+  showDate: boolean;
+}) {
+  const parts = [
+    category.toUpperCase(),
+    showDate ? date : null,
+    `${mins} MIN READ`,
+  ].filter(Boolean) as string[];
+
+  return (
+    <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase tracking-[0.12em] text-gambit-text leading-relaxed">
+      {parts.map((part, i) => (
+        <span key={`${part}-${i}`} className="inline-flex items-center gap-x-2.5">
+          {i > 0 && (
+            <span className="text-rule select-none" aria-hidden="true">
+              ·
+            </span>
+          )}
+          <span>{part}</span>
+        </span>
+      ))}
+    </p>
+  );
+}
+
 export default function ArticleCard({
   article,
   showDate = true,
@@ -38,10 +71,12 @@ export default function ArticleCard({
     return (
       <Link href={`/notions/${article.slug}`} className="group block py-5 border-b border-rule first:pt-0">
         <div className="flex flex-col gap-3 max-w-[68ch]">
-          <p className="font-mono text-meta uppercase tracking-[0.12em] text-gambit-text">
-            {article.category}
-            {showDate && ` · ${dateShort}`} · {mins} min read
-          </p>
+          <ArticleMeta
+            category={article.category}
+            date={dateShort.toUpperCase()}
+            mins={mins}
+            showDate={showDate}
+          />
           <h3 className="font-sans font-semibold text-h3 text-ink group-hover:text-emboss-link transition-colors duration-fast ease-out">
             {article.title}
           </h3>
@@ -52,13 +87,6 @@ export default function ArticleCard({
   }
 
   const cover = coverBySlug[article.slug];
-  const meta = [
-    article.category.toUpperCase(),
-    showDate ? formatDate(article.date) : null,
-    `${mins} MIN READ`,
-  ]
-    .filter(Boolean)
-    .join(' · ');
 
   const media = cover ? (
     <div className="relative w-full sm:w-[140px] md:w-[160px] aspect-[5/4] shrink-0 overflow-hidden rounded-md bg-landing-stone">
@@ -69,17 +97,22 @@ export default function ArticleCard({
   );
 
   const copy = (
-    <div className="flex flex-1 flex-col gap-2 min-w-0 py-0.5">
-      <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-gambit-text">{meta}</p>
+    <div className="flex flex-1 flex-col gap-2.5 min-w-0 py-0.5">
+      <ArticleMeta
+        category={article.category}
+        date={formatDate(article.date)}
+        mins={mins}
+        showDate={showDate}
+      />
       <h3 className="font-sans font-semibold text-[1.15rem] md:text-[1.25rem] leading-snug text-ink group-hover:text-emboss-link transition-colors duration-fast ease-out text-balance">
         {article.title}
       </h3>
       <p className="font-sans text-[0.9rem] leading-relaxed text-gambit-text line-clamp-2 md:line-clamp-3">
         {article.standfirst}
       </p>
-      <span className="mt-1 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink">
+      <span className="mt-1.5 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.14em] text-ink">
         Read the article
-        <span className="h-px w-10 md:w-14 bg-ink/50" aria-hidden="true" />
+        <span className="h-px w-12 md:w-16 bg-ink/40" aria-hidden="true" />
         <span aria-hidden="true">→</span>
       </span>
     </div>
@@ -88,7 +121,7 @@ export default function ArticleCard({
   return (
     <Link
       href={`/notions/${article.slug}`}
-      className="group flex flex-col sm:flex-row sm:items-center gap-4 md:gap-5 rounded-lg bg-card/80 border border-rule/70 px-3.5 py-3.5 md:px-4 md:py-4 transition-colors duration-fast ease-out hover:border-emboss/40"
+      className="group flex flex-col sm:flex-row sm:items-center gap-5 md:gap-6 rounded-lg bg-card/80 border border-rule/70 px-4 py-4 md:px-5 md:py-5 transition-colors duration-fast ease-out hover:border-emboss/40"
     >
       {imageSide === 'left' ? (
         <>

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import SectionKicker from '@/components/SectionKicker';
 
 /**
  * Studio page hero — split layout (copy | illustration), Brandkit palette.
@@ -9,8 +8,6 @@ export default function StudioHero() {
     <header className="relative overflow-hidden page-x max-w-container mx-auto pt-6 pb-5 md:pb-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-6 lg:items-center">
         <div className="lg:col-span-6 flex flex-col gap-4">
-          <SectionKicker>Studio</SectionKicker>
-
           <h1 className="font-sans font-bold text-h1 text-ink text-balance max-w-[18ch]">
             A strategy-led{' '}
             <span className="relative inline-block text-emboss italic font-semibold px-1 mx-[-0.1em]">

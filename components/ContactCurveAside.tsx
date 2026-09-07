@@ -12,7 +12,7 @@ function CurvedPhoto({
   src,
   clipId,
   priority = false,
-  minClass = 'min-h-[260px] sm:min-h-[300px] md:min-h-[340px]',
+  minClass = 'min-h-[200px] sm:min-h-[240px] md:min-h-[280px]',
 }: {
   src: string;
   clipId: string;
@@ -20,7 +20,9 @@ function CurvedPhoto({
   minClass?: string;
 }) {
   return (
-    <div className={`relative w-full ${minClass} overflow-hidden bg-open-board`}>
+    <div
+      className={`relative w-full aspect-[5/4] sm:aspect-auto ${minClass} overflow-hidden bg-open-board rounded-md sm:rounded-none`}
+    >
       <svg width="0" height="0" className="absolute" aria-hidden="true">
         <defs>
           <clipPath id={clipId} clipPathUnits="objectBoundingBox">
@@ -28,13 +30,16 @@ function CurvedPhoto({
           </clipPath>
         </defs>
       </svg>
-      <div className="absolute inset-0" style={{ clipPath: `url(#${clipId})` }}>
+      <div
+        className="absolute inset-0 max-sm:[clip-path:none]"
+        style={{ clipPath: `url(#${clipId})` }}
+      >
         <Image
           src={src}
           alt=""
           fill
           sizes="(max-width: 1280px) 100vw, 42vw"
-          className="object-cover object-[58%_center]"
+          className="object-cover object-[center_40%] sm:object-[58%_center]"
           priority={priority}
         />
       </div>
@@ -43,31 +48,15 @@ function CurvedPhoto({
 }
 
 /**
- * Contact aside — curved photo edge (mockup scoop) + Direct / next / fit.
+ * Contact aside — curved photo + Direct / next / fit (decluttered).
  */
 export default function ContactCurveAside() {
   return (
-    <aside className="min-w-0 flex flex-col gap-8">
-      <div className="relative flex gap-4 items-stretch">
-        <p
-          className="hidden sm:flex shrink-0 self-start pt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-gambit-text leading-[2.2]"
-          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-          aria-hidden="true"
-        >
-          Ideas
-          <br />
-          Brands
-          <br />
-          People
-        </p>
+    <aside className="min-w-0 flex flex-col gap-10 md:gap-10 pt-2 sm:pt-0">
+      <CurvedPhoto src="/contact/workspace.jpg" clipId="contact-curve-top" priority />
 
-        <div className="flex-1 min-w-0">
-          <CurvedPhoto src="/contact/workspace.jpg" clipId="contact-curve-top" priority />
-        </div>
-      </div>
-
-      <div>
-        <p className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-2.5">
+      <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
           Direct
         </p>
         <div className="mt-5">
@@ -75,11 +64,11 @@ export default function ContactCurveAside() {
         </div>
       </div>
 
-      <div>
-        <p className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-2.5">
+      <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
           What happens next?
         </p>
-        <ol className="mt-5 flex flex-col gap-4">
+        <ol className="mt-5 flex flex-col gap-5">
           {nextSteps.map((step, i) => (
             <li key={step} className="flex gap-5 items-start font-sans text-body text-ink">
               <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-landing-stone/80 font-mono text-[11px] text-ink">
@@ -91,43 +80,43 @@ export default function ContactCurveAside() {
         </ol>
       </div>
 
-      <div>
-        <p className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-2.5">
+      <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
           Fit
         </p>
-        <div className="mt-5 flex flex-col gap-3.5 font-sans text-body text-ink leading-relaxed">
+        <div className="mt-5 flex flex-col gap-4 font-sans text-body text-ink leading-relaxed">
           <p>
             <strong className="font-semibold">We take on:</strong> founders who need a position
             before a logo, and are willing to think deeper.
           </p>
           <p>
             <strong className="font-semibold">We don&rsquo;t take on:</strong> price shoppers,
-            one-off logo seekers, or anyone unwilling to engage with strategy — including briefs
-            where the name is already decided and only needs designing.
+            one-off logo seekers, or anyone unwilling to engage with strategy.
           </p>
         </div>
       </div>
 
-      <div>
-        <p className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-2.5">
-          Based in
-        </p>
-        <p className="mt-4 font-sans text-body text-ink">{site.city}</p>
-      </div>
-
-      <div>
-        <p className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-2.5">
-          Elsewhere
-        </p>
-        <div className="mt-5">
-          <ContactDirectLinks tone="badge" channels={['linkedin', 'instagram']} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pl-1 sm:pl-4 md:pl-6 lg:pl-8">
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
+            Based in
+          </p>
+          <p className="mt-4 font-sans text-body text-ink">{site.city}</p>
+        </div>
+        <div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
+            Elsewhere
+          </p>
+          <div className="mt-4">
+            <ContactDirectLinks tone="badge" channels={['linkedin', 'instagram']} />
+          </div>
         </div>
       </div>
 
       <CurvedPhoto
         src="/contact/desk-plants.jpg"
         clipId="contact-curve-bottom"
-        minClass="min-h-[220px] sm:min-h-[260px]"
+        minClass="min-h-[200px] sm:min-h-[240px]"
       />
     </aside>
   );

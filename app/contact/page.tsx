@@ -24,36 +24,30 @@ export default function ContactPage({
 
   return (
     <>
-      <section className="page-x pt-6 pb-10 md:pb-12 max-w-container mx-auto">
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-10 xl:gap-12 items-start">
+      <section className="page-x pt-7 pb-16 md:pb-20 max-w-container mx-auto">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-y-14 gap-x-12 xl:gap-14 items-start">
           <div className="xl:col-span-7 min-w-0">
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text">
-                Contact
-              </span>
-              <span className="h-px w-14 md:w-20 bg-emboss/50" aria-hidden="true" />
-            </div>
-            <h1 className="mt-4 font-sans font-bold text-[1.75rem] md:text-h1 text-ink tracking-[-0.02em] text-balance max-w-[18ch]">
+            <h1 className="font-sans font-bold text-[1.75rem] md:text-h1 text-ink tracking-[-0.02em] text-balance max-w-[18ch]">
               Tell us what you&rsquo;re trying to solve.
             </h1>
-            <p className="mt-3 font-sans text-body-l text-gambit-text max-w-standfirst">
+            <p className="mt-4 font-sans text-body-l text-gambit-text max-w-standfirst">
               Not what you think you need built — the actual problem underneath it. That is the only
               field on this form we cannot work without.
             </p>
 
-            <div className="mt-8 md:mt-9">
+            <div className="mt-9 md:mt-10">
               <ContactForm sent={sent} errors={errors} />
             </div>
-
-            <p className="mt-12 font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text">
-              Better brands for a clearer tomorrow
-            </p>
           </div>
 
-          <div className="xl:col-span-5">
+          <div className="xl:col-span-5 border-t border-rule pt-10 xl:border-t-0 xl:pt-0">
             <ContactCurveAside />
           </div>
         </div>
+
+        <p className="mt-16 md:mt-20 pt-8 pb-2 border-t border-rule font-mono text-[13px] md:text-sm uppercase tracking-[0.18em] text-gambit-text leading-relaxed">
+          Better brands for a clearer tomorrow
+        </p>
       </section>
     </>
   );

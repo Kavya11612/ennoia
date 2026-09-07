@@ -1,5 +1,4 @@
 ﻿import type { Metadata } from 'next';
-import SectionKicker from '@/components/SectionKicker';
 import ProjectBannerCard from '@/components/ProjectBannerCard';
 import ArticleCard from '@/components/ArticleCard';
 import Button from '@/components/Button';
@@ -55,8 +54,7 @@ export default function HomePage() {
       {/* H2 Positioning — locked Website PRD statement + Brandkit board language */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
         <div className="max-w-standfirst">
-          <SectionKicker>Positioning</SectionKicker>
-          <p className="mt-4 font-sans text-body-l text-ink">
+          <p className="font-sans text-body-l text-ink">
             For founders who need a position, not just a logo, Ennoia is the strategy-led branding
             studio that finds the move competitors miss and builds the brand around it — because we
             read the whole board before we move.
@@ -70,8 +68,7 @@ export default function HomePage() {
 
       {/* H3 Selected hypotheticals */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>Selected hypotheticals</SectionKicker>
-        <p className="mt-4 font-sans text-body-l text-ink max-w-standfirst">
+        <p className="font-sans text-body-l text-ink max-w-standfirst">
           Self-initiated projects. The brands are invented; the problems are not.
         </p>
 
@@ -90,23 +87,26 @@ export default function HomePage() {
 
       {/* H4 What we do */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>What we do</SectionKicker>
-        <div className="mt-5">
-          <HomePractices practices={practices} />
-        </div>
+        <HomePractices practices={practices} />
       </section>
 
       {/* H5 How we work */}
-      <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>How we work</SectionKicker>
-        <h2 className="mt-4 font-sans font-bold text-h2 text-ink max-w-[20ch] text-balance">
-          From insight to impact.
-        </h2>
-        <p className="mt-3 font-sans text-body-l text-ink max-w-standfirst">
-          Five stages — from reading the category to applying the brand where customers actually meet
-          it.
-        </p>
-        <div className="mt-6">
+      <section className="page-x py-10 md:py-12 max-w-container mx-auto">
+        <header className="max-w-[36rem]">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-rule" aria-hidden="true" />
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gambit-text">
+              How we work
+            </p>
+          </div>
+          <h2 className="mt-4 font-sans font-bold text-[1.65rem] md:text-h2 text-ink tracking-[-0.02em] text-balance max-w-[16ch]">
+            From insight to impact.
+          </h2>
+          <p className="mt-4 font-sans text-[1.05rem] md:text-body-l leading-relaxed text-gambit-text max-w-standfirst">
+            Five stages — from reading the category to applying the brand where customers live.
+          </p>
+        </header>
+        <div className="mt-10 md:mt-12">
           <ProcessStages compact />
         </div>
         <div className="mt-5">
@@ -119,10 +119,7 @@ export default function HomePage() {
       {/* H6 Proof */}
       <section className="bg-ink py-7 md:py-8">
         <div className="page-x max-w-container mx-auto">
-          <span className="font-mono text-eyebrow uppercase tracking-[0.16em] text-landing-stone">
-            Proof
-          </span>
-          <h2 className="mt-4 font-sans font-bold text-h2 text-open-board max-w-[28ch]">
+          <h2 className="font-sans font-bold text-h2 text-open-board max-w-[28ch]">
             We verify a name before you fall in love with it.
           </h2>
           <p className="mt-4 font-sans text-body-l text-landing-stone max-w-standfirst">
@@ -146,8 +143,7 @@ export default function HomePage() {
 
       {/* H7 Sectors */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>Sectors</SectionKicker>
-        <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-5 max-w-[900px]">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-5 max-w-[900px]">
           {sectors.map((sector) => (
             <li key={sector.slug} className="border-t border-rule pt-4">
               <h3 className="font-sans font-semibold text-h3 text-ink">{sector.name}</h3>
@@ -159,8 +155,7 @@ export default function HomePage() {
 
       {/* H8 Writing */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>Writing</SectionKicker>
-        <div className="mt-5 max-w-prose">
+        <div className="max-w-prose">
           {recentArticles.map((article) => (
             <ArticleCard key={article.slug} article={article} />
           ))}

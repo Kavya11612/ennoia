@@ -207,7 +207,7 @@ export default function ContactForm({
         )}
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-1">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-3 pb-2">
         <button
           type="submit"
           className="self-start inline-flex items-center gap-2 bg-ink text-open-board px-6 py-3 rounded-md font-mono text-[12px] uppercase tracking-[0.14em] hover:bg-ink-hover transition-colors duration-fast ease-out min-h-[44px]"
@@ -215,7 +215,7 @@ export default function ContactForm({
           Send message
           <span aria-hidden="true">→</span>
         </button>
-        <p className="font-sans text-[0.875rem] text-gambit-text max-w-[32ch]">
+        <p className="font-sans text-[0.875rem] leading-relaxed text-gambit-text max-w-[36ch]">
           We&rsquo;ll get back to you within 1–2 working days. No spam. Just a meaningful conversation.
         </p>
       </div>

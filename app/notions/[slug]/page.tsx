@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import SectionKicker from '@/components/SectionKicker';
 import ArticleCard from '@/components/ArticleCard';
 import Reveal from '@/components/Reveal';
 import ContactCTA from '@/components/ContactCTA';
@@ -52,9 +51,21 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
       <header className="page-x pt-7 pb-6 max-w-container mx-auto">
         <div className="max-w-prose flex flex-col gap-4">
-          <SectionKicker>
-            {`${article.category}${SHOW_DATES ? ` · ${date}` : ''} · ${readingTime(article.body)} min read`}
-          </SectionKicker>
+          <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase tracking-[0.12em] text-gambit-text leading-relaxed">
+            <span>{article.category}</span>
+            {SHOW_DATES && (
+              <>
+                <span className="text-rule" aria-hidden="true">
+                  ·
+                </span>
+                <span>{date}</span>
+              </>
+            )}
+            <span className="text-rule" aria-hidden="true">
+              ·
+            </span>
+            <span>{readingTime(article.body)} min read</span>
+          </p>
           <h1 className="font-sans font-bold text-h1 text-ink">{article.title}</h1>
           <p className="font-sans text-body-l text-ink">{article.standfirst}</p>
           <p className="font-mono text-meta uppercase tracking-[0.1em] text-gambit-text">
@@ -73,8 +84,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
       {related.length > 0 && (
         <Reveal as="section" className="page-x py-5 max-w-container mx-auto border-t border-rule">
-          <SectionKicker>Related</SectionKicker>
-          <div className="mt-6 max-w-prose">
+          <div className="max-w-prose">
             {related.map((a) => (
               <ArticleCard key={a.slug} article={a} showDate={SHOW_DATES} />
             ))}

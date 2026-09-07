@@ -33,15 +33,9 @@ export default function StudioPhilosophy() {
 
       <div className="relative z-10 page-x max-w-container mx-auto py-8 md:py-10">
         <header className="philosophy-rise max-w-[34rem]">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text">
-              Our philosophy
-            </span>
-            <span className="h-px w-16 md:w-24 bg-emboss/50" aria-hidden="true" />
-          </div>
           <h2
             id="philosophy-heading"
-            className="mt-4 font-sans font-bold text-[1.75rem] md:text-h2 text-ink tracking-[-0.02em] text-balance"
+            className="font-sans font-bold text-[1.75rem] md:text-h2 text-ink tracking-[-0.02em] text-balance"
           >
             Ideas. Strategy. Design.
           </h2>

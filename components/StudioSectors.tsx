@@ -65,13 +65,7 @@ export default function StudioSectors() {
     <section className="page-x py-7 md:py-8 max-w-container mx-auto">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
         <header className="max-w-[34rem]">
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text">
-              Sectors
-            </span>
-            <span className="h-px w-14 md:w-20 bg-emboss/50" aria-hidden="true" />
-          </div>
-          <h2 className="mt-3 font-sans font-bold text-[1.5rem] md:text-[1.85rem] text-ink tracking-[-0.02em] text-balance">
+          <h2 className="font-sans font-bold text-[1.5rem] md:text-[1.85rem] text-ink tracking-[-0.02em] text-balance">
             Industries we serve
           </h2>
           <p className="mt-2 font-sans text-[0.95rem] leading-relaxed text-gambit-text max-w-standfirst">

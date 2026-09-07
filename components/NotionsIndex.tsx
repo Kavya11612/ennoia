@@ -48,13 +48,7 @@ export default function NotionsIndex({
   return (
     <>
       <header className="page-x pt-6 pb-4 max-w-container mx-auto">
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-eyebrow font-medium uppercase tracking-[0.16em] text-gambit-text">
-            Notions
-          </span>
-          <span className="h-px w-14 md:w-20 bg-emboss/50" aria-hidden="true" />
-        </div>
-        <h1 className="mt-3 font-sans font-bold text-[2rem] md:text-h1 text-ink tracking-[-0.02em]">
+        <h1 className="font-sans font-bold text-[2rem] md:text-h1 text-ink tracking-[-0.02em]">
           Notions
         </h1>
         <p className="mt-3 font-sans text-body-l text-gambit-text max-w-standfirst">
@@ -93,7 +87,7 @@ export default function NotionsIndex({
 
       <section className="page-x pb-6 max-w-container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-8 lg:items-start overflow-visible">
-          <div className="lg:col-span-7 flex flex-col gap-4">
+          <div className="lg:col-span-7 flex flex-col gap-5 md:gap-6">
             {pageItems.length === 0 ? (
               <p className="font-sans text-body text-gambit-text">No notions in this category yet.</p>
             ) : (

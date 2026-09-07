@@ -4,9 +4,6 @@ export default function NotFound() {
   return (
     <section className="page-x py-7 max-w-container mx-auto min-h-[60vh] flex flex-col justify-center">
       <div className="max-w-[560px] flex flex-col gap-6">
-        <span className="font-mono text-eyebrow uppercase tracking-[0.16em] text-gambit-text">
-          404
-        </span>
         <h1 className="font-sans font-bold text-h1 text-ink">This page doesn&rsquo;t exist.</h1>
         <p className="font-sans text-body-l text-ink">
           It may have moved, or the link was wrong. Here&rsquo;s where to go instead.

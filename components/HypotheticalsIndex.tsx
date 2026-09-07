@@ -3,7 +3,6 @@
 import { useMemo, useCallback } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import ProjectBannerCard from '@/components/ProjectBannerCard';
-import SectionKicker from '@/components/SectionKicker';
 import Button from '@/components/Button';
 import type { Project } from '@/lib/data/types';
 import { practices } from '@/lib/data/practices';
@@ -97,8 +96,7 @@ export default function HypotheticalsIndex({ projects }: { projects: Project[] }
 
       {clientWork.length > 0 && (
         <section className="page-x py-6 max-w-container mx-auto">
-          <SectionKicker>Client work</SectionKicker>
-          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-5">
             {clientWork.map((project, i) => (
               <ProjectBannerCard key={project.slug} project={project} index={i} />
             ))}
@@ -107,8 +105,7 @@ export default function HypotheticalsIndex({ projects }: { projects: Project[] }
       )}
 
       <section className="page-x py-5 md:py-6 max-w-container mx-auto">
-        <SectionKicker>Hypotheticals</SectionKicker>
-        <p className="mt-4 font-sans text-body-l text-ink max-w-standfirst">
+        <p className="font-sans text-body-l text-ink max-w-standfirst">
           Self-initiated projects. The brands are invented; the problems are not.
         </p>
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-5">

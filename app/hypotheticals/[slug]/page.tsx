@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import DisclosureBanner from '@/components/DisclosureBanner';
-import SectionKicker from '@/components/SectionKicker';
 import Reveal from '@/components/Reveal';
 import ProjectDetailBanner from '@/components/ProjectDetailBanner';
 import { projects, getProjectBySlug } from '@/lib/data/projects';
@@ -21,18 +20,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-function Section({
-  kicker,
-  children,
-}: {
-  kicker: string;
-  children: React.ReactNode;
-}) {
+function Section({ children }: { children: React.ReactNode }) {
   return (
     <Reveal as="section" className="page-x py-5 md:py-6 max-w-container mx-auto">
       <div className="max-w-prose">
-        <SectionKicker>{kicker}</SectionKicker>
-        <div className="mt-4 flex flex-col gap-4 font-sans text-body text-ink">{children}</div>
+        <div className="flex flex-col gap-4 font-sans text-body text-ink">{children}</div>
       </div>
     </Reveal>
   );
@@ -68,31 +60,28 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         <ProjectDetailBanner project={project} index={currentIndex >= 0 ? currentIndex : 0} />
       </section>
 
-      <Section kicker="The brief we set ourselves">
+      <Section>
         <p>{project.selfSetBrief}</p>
       </Section>
 
-      <Section kicker="The category">
+      <Section>
         {project.categoryResearch.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
       </Section>
 
-      <Section kicker="What we found">
+      <Section>
         {project.findings.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
       </Section>
 
-      <Section kicker="The direction">
+      <Section>
         <p>{project.direction}</p>
       </Section>
 
       <Reveal as="section" className="page-x py-5 md:py-6 max-w-container mx-auto">
-        <div className="max-w-prose">
-          <SectionKicker>The system</SectionKicker>
-        </div>
-        <div className="mt-4 flex flex-col gap-4 max-w-prose font-sans text-body text-ink">
+        <div className="flex flex-col gap-4 max-w-prose font-sans text-body text-ink">
           {project.systemBody.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -105,10 +94,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       </Reveal>
 
       <Reveal as="section" className="page-x py-5 md:py-6 max-w-container mx-auto">
-        <div className="max-w-prose">
-          <SectionKicker>Applied</SectionKicker>
-        </div>
-        <div className="mt-4 flex flex-col gap-4 max-w-prose font-sans text-body text-ink">
+        <div className="flex flex-col gap-4 max-w-prose font-sans text-body text-ink">
           {project.appliedBody.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -120,7 +106,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         </div>
       </Reveal>
 
-      <Section kicker="What we'd measure">
+      <Section>
         <ul className="flex flex-col gap-3">
           {project.whatWeWouldMeasure.map((p, i) => (
             <li key={i} className="pl-5 relative">
@@ -133,8 +119,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
       <Reveal as="section" className="page-x py-5 md:py-6 max-w-container mx-auto">
         <div className="max-w-prose">
-          <SectionKicker>Scope</SectionKicker>
-          <p className="mt-4 font-mono text-[14px] uppercase tracking-[0.1em] text-gambit-text">
+          <p className="font-mono text-[14px] uppercase tracking-[0.1em] text-gambit-text">
             {project.scope.join(' · ')}
           </p>
         </div>

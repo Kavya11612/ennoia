@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from 'next';
 import StudioHero from '@/components/StudioHero';
 import StudioPhilosophy from '@/components/StudioPhilosophy';
-import SectionKicker from '@/components/SectionKicker';
 import Button from '@/components/Button';
 import WhatWeDoList from '@/components/WhatWeDoList';
 import ProcessStages from '@/components/ProcessStages';
@@ -39,16 +38,12 @@ export default function StudioPage() {
 
       {/* S2 Practices */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>What we do</SectionKicker>
-        <div className="mt-5">
-          <WhatWeDoList practices={practices} />
-        </div>
+        <WhatWeDoList practices={practices} />
       </section>
 
       {/* S3 Five-stage methodology — Website PRD */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>How we work</SectionKicker>
-        <h2 className="mt-4 font-sans font-bold text-h2 text-ink max-w-[20ch] text-balance">
+        <h2 className="font-sans font-bold text-h2 text-ink max-w-[20ch] text-balance">
           From insight to impact.
         </h2>
         <p className="mt-3 font-sans text-body-l text-ink max-w-standfirst">
@@ -62,8 +57,7 @@ export default function StudioPage() {
 
       {/* S4 Engagement */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <SectionKicker>How we engage</SectionKicker>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {engagements.map((e) => (
             <div key={e.name} className="border-t border-rule pt-4 flex flex-col gap-3">
               <h3 className="font-sans font-semibold text-h3 text-ink">{e.name}</h3>
