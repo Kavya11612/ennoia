@@ -117,13 +117,11 @@ export default function ProcessStages({ compact = false }: { compact?: boolean }
                 className={`relative z-[1] mt-3 hidden h-2 w-2 shrink-0 rounded-full sm:block ${dot}`}
                 aria-hidden="true"
               />
-              {!isLast && (
-                <span
-                  aria-hidden="true"
-                  className="mt-0 hidden w-px flex-1 bg-rule sm:block"
-                  style={{ marginBottom: '-24px' }}
-                />
-              )}
+              <span
+                aria-hidden="true"
+                className="mt-0 hidden w-px flex-1 bg-rule sm:block"
+                style={{ marginBottom: isLast ? 0 : '-24px' }}
+              />
             </div>
 
             <div className="bg-card border border-rule rounded-md p-5 md:p-6 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-5 md:gap-6 items-center">
