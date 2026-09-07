@@ -81,15 +81,17 @@ function StepNumber({ n }: { n: number }) {
 export default function HomePractices({ practices }: { practices: Practice[] }) {
   return (
     <div>
-      <header className="max-w-[36rem]">
+      <header className="pl-3 sm:pl-5 md:pl-8 max-w-[38rem]">
         <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-rule" aria-hidden="true" />
-          <p className="font-mono text-[12px] tracking-[0.04em] text-gambit-text">What we do</p>
+          <span className="h-px w-8 bg-rule shrink-0" aria-hidden="true" />
+          <p className="font-mono text-[15px] md:text-[16px] tracking-[0.04em] text-gambit-text">
+            What we do
+          </p>
         </div>
-        <h2 className="mt-3 font-sans font-bold text-[1.45rem] md:text-[1.7rem] text-ink tracking-[-0.02em] text-balance max-w-[16ch]">
+        <h2 className="mt-2 font-sans font-bold text-[1.75rem] md:text-[2rem] text-ink tracking-[-0.02em] text-balance leading-[1.15]">
           Ideas that build stronger brands.
         </h2>
-        <p className="mt-3 font-sans text-[0.98rem] md:text-body leading-relaxed text-gambit-text max-w-standfirst">
+        <p className="mt-2 font-sans text-body md:text-body-l leading-relaxed text-gambit-text">
           From strategy to real-world experience, we shape brands that make a difference.
         </p>
       </header>
