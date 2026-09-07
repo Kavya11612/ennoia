@@ -7,7 +7,6 @@ const sectorImages: Record<string, string> = {
   'fintech-b2b': '/sectors/fintech-b2b.jpg',
   'hospitality-travel': '/sectors/hospitality-travel.jpg',
   'climate-industrial': '/sectors/climate-industrial.jpg',
-  'lifestyle-wellness': '/sectors/lifestyle-wellness.jpg',
 };
 
 const icons = [
@@ -137,24 +136,6 @@ export default function StudioSectors() {
             </li>
           );
         })}
-
-        <li className="relative flex min-h-[16rem] min-w-0 flex-col justify-end overflow-hidden rounded-md bg-card border border-rule px-5 py-6">
-          <div
-            className="pointer-events-none absolute -right-6 -top-4 h-28 w-28 rounded-full border border-rule"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute -bottom-4 -right-3 h-24 w-20 text-emboss/45"
-            aria-hidden="true"
-          >
-            <svg viewBox="0 0 80 100" className="h-full w-full" fill="currentColor">
-              <path d="M36 95 C34 70 28 48 40 16 C52 10 62 28 54 48 C70 52 74 70 62 82 C50 92 38 90 36 95Z" />
-            </svg>
-          </div>
-          <p className="relative font-sans text-[1.35rem] md:text-[1.5rem] italic font-semibold text-ink leading-snug max-w-[12ch]">
-            Strategy meets creativity.
-          </p>
-        </li>
       </ul>
     </section>
   );
