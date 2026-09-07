@@ -86,7 +86,7 @@ function StageVisual({ index }: { index: number }) {
   ];
 
   return (
-    <div className="relative aspect-square w-full max-w-[160px] md:max-w-[180px] mx-auto md:mx-0 overflow-hidden bg-open-board">
+    <div className="relative aspect-square w-full max-w-[120px] md:max-w-[140px] mx-auto md:mx-0 overflow-hidden bg-open-board">
       {panels[index % panels.length]}
     </div>
   );
@@ -98,7 +98,7 @@ function StageVisual({ index }: { index: number }) {
  */
 export default function ProcessStages({ compact = false }: { compact?: boolean }) {
   return (
-    <ol className="relative flex flex-col gap-5">
+    <ol className={`relative flex flex-col ${compact ? 'gap-4' : 'gap-5'}`}>
       {stages.map((stage, i) => {
         const n = String(i + 1).padStart(2, '0');
         const dot = i % 2 === 0 ? 'bg-ink' : 'bg-clay';
@@ -106,31 +106,37 @@ export default function ProcessStages({ compact = false }: { compact?: boolean }
         return (
           <li
             key={stage.title}
-            className="relative grid grid-cols-[2.5rem_1fr] sm:grid-cols-[3.5rem_1fr] gap-3 md:gap-5 items-stretch"
+            className="relative grid grid-cols-[2.5rem_1fr] sm:grid-cols-[3.5rem_1fr] gap-3 md:gap-4 items-stretch"
           >
             {/* Number clear of the line; line starts at the dot */}
-            <div className="relative flex flex-col items-center pt-5">
-              <span className="shrink-0 font-sans font-semibold text-h3 text-ink tabular-nums leading-none">
+            <div className="relative flex flex-col items-center pt-4">
+              <span className="shrink-0 font-sans font-semibold text-[1.25rem] md:text-h3 text-ink tabular-nums leading-none">
                 {n}
               </span>
               <span
-                className={`relative z-[1] mt-3 hidden h-2 w-2 shrink-0 rounded-full sm:block ${dot}`}
+                className={`relative z-[1] mt-2 hidden h-2 w-2 shrink-0 rounded-full sm:block ${dot}`}
                 aria-hidden="true"
               />
               <span
                 aria-hidden="true"
                 className="mt-0 hidden w-px flex-1 bg-rule sm:block"
-                style={{ marginBottom: isLast ? 0 : '-24px' }}
+                style={{ marginBottom: isLast ? 0 : compact ? '-16px' : '-20px' }}
               />
             </div>
 
-            <div className="bg-card border border-rule rounded-md p-5 md:p-6 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-5 md:gap-6 items-center">
-              <div className="flex flex-col gap-2 min-w-0">
-                <span className="font-mono text-meta uppercase tracking-[0.16em] text-emboss">
+            <div
+              className={`bg-card border border-rule rounded-md grid grid-cols-1 md:grid-cols-[1fr_auto] items-center ${
+                compact ? 'p-4 md:p-5 gap-4 md:gap-5' : 'p-5 md:p-6 gap-5 md:gap-6'
+              }`}
+            >
+              <div className={`flex flex-col min-w-0 ${compact ? 'gap-2' : 'gap-2'}`}>
+                <span className="font-mono text-[12px] tracking-[0.04em] text-emboss">
                   {stage.category}
                 </span>
-                <h3 className="font-sans font-semibold text-h3 text-ink">{stage.title}</h3>
-                <p className="font-sans text-body text-ink max-w-[48ch]">
+                <h3 className="font-sans font-semibold text-[1.2rem] md:text-h3 text-ink">
+                  {stage.title}
+                </h3>
+                <p className="font-sans text-[0.95rem] md:text-body text-gambit-text max-w-[48ch] leading-relaxed">
                   {compact ? stage.oneLiner : stage.body}
                 </p>
               </div>

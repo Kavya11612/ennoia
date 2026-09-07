@@ -23,19 +23,16 @@ export default function ProjectBannerCard({
         {surface.deco}
       </div>
 
-      <div className="relative z-[1] flex w-full flex-col justify-between gap-5 p-5 md:flex-row md:items-end md:gap-6 md:p-6">
+      <div className="relative z-[1] flex w-full min-w-0 flex-col justify-between gap-5 p-5 md:flex-row md:items-end md:gap-6 md:p-6">
         <div className="flex min-w-0 flex-col gap-2">
           <h3 className={`font-sans font-semibold text-h3 max-w-[18ch] text-balance ${surface.ink}`}>
             {project.brandName}
           </h3>
           <p className={`font-sans text-body-s max-w-[36ch] ${surface.mute}`}>{project.oneLiner}</p>
-          <span className={`mt-1 inline-flex ${surface.ink}`} aria-hidden="true">
-            →
-          </span>
         </div>
 
         <span
-          className={`shrink-0 self-start md:self-end inline-flex items-center justify-center min-h-[44px] px-4 rounded-full border font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-fast ease-out ${surface.cta}`}
+          className={`shrink-0 self-start md:self-end inline-flex items-center justify-center min-h-[44px] px-4 rounded-full border font-mono text-[11px] tracking-[0.08em] transition-colors duration-fast ease-out ${surface.cta}`}
         >
           View project
           <span className="ml-2" aria-hidden="true">

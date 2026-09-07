@@ -86,9 +86,9 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             <p key={i}>{p}</p>
           ))}
         </div>
-        <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-prose md:max-w-none">
           {['bg-emboss', 'bg-landing-stone', 'bg-gambit'].map((bg, i) => (
-            <div key={i} className={`aspect-[16/10] ${bg}`} />
+            <div key={i} className={`aspect-[16/10] rounded-sm ${bg}`} />
           ))}
         </div>
       </Reveal>
@@ -99,9 +99,9 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
             <p key={i}>{p}</p>
           ))}
         </div>
-        <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-prose md:max-w-none">
           {['bg-clay', 'bg-card border border-rule', 'bg-emboss', 'bg-landing-stone'].map((bg, i) => (
-            <div key={i} className={`aspect-[5/4] ${bg}`} />
+            <div key={i} className={`aspect-[5/4] rounded-sm ${bg}`} />
           ))}
         </div>
       </Reveal>
@@ -119,23 +119,29 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
       <Reveal as="section" className="page-x py-5 md:py-6 max-w-container mx-auto">
         <div className="max-w-prose">
-          <p className="font-mono text-[14px] uppercase tracking-[0.1em] text-gambit-text">
+          <p className="font-mono text-[14px] tracking-[0.06em] text-gambit-text">
             {project.scope.join(' · ')}
           </p>
         </div>
       </Reveal>
 
-      <Reveal as="section" className="page-x py-7 md:py-5 max-w-container mx-auto border-t border-rule">
-        <Link href={`/hypotheticals/${next.slug}`} className="group flex items-center justify-between gap-6">
-          <div>
-            <span className="font-mono text-meta uppercase tracking-[0.16em] text-gambit-text">
+      <Reveal as="section" className="page-x py-7 md:py-8 max-w-container mx-auto border-t border-rule">
+        <Link
+          href={`/hypotheticals/${next.slug}`}
+          className="group flex items-start sm:items-center justify-between gap-4 sm:gap-6 min-w-0"
+        >
+          <div className="min-w-0">
+            <span className="font-mono text-meta tracking-[0.08em] text-gambit-text">
               Next hypothetical
             </span>
-            <h2 className="mt-2 font-sans font-bold text-h2 text-ink group-hover:text-emboss-link transition-colors duration-fast ease-out">
+            <h2 className="mt-2 font-sans font-bold text-h2 text-ink group-hover:text-emboss-link transition-colors duration-fast ease-out text-balance">
               {next.brandName}
             </h2>
           </div>
-          <span aria-hidden="true" className="font-sans text-h1 text-ink">
+          <span
+            aria-hidden="true"
+            className="font-sans text-h1 text-ink shrink-0 leading-none pt-1 sm:pt-0"
+          >
             →
           </span>
         </Link>

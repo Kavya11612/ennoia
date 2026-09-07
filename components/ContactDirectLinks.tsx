@@ -73,9 +73,11 @@ type Channel = 'email' | 'whatsapp' | 'phone' | 'linkedin' | 'instagram';
 export default function ContactDirectLinks({
   tone = 'light',
   channels = ['email', 'whatsapp', 'phone'],
+  compact = false,
 }: {
   tone?: 'light' | 'dark' | 'badge';
   channels?: Channel[];
+  compact?: boolean;
 }) {
   const items: Record<Channel, { href: string; label: string; value: string; Icon: typeof IconEmail }> = {
     email: { href: site.mailto, label: `Email ${site.email}`, value: site.email, Icon: IconEmail },
@@ -92,18 +94,24 @@ export default function ContactDirectLinks({
 
   if (tone === 'badge') {
     return (
-      <ul className="flex flex-col gap-4">
+      <ul className={`flex flex-col ${compact ? 'gap-3' : 'gap-4'}`}>
         {channels.map((key) => {
           const item = items[key];
           return (
             <li key={key}>
               <a
                 href={item.href}
-                className="group flex items-center gap-5 font-sans text-[0.95rem] leading-snug text-ink break-all hover:text-emboss-link transition-colors duration-fast ease-out"
+                className={`group flex items-center font-sans text-[0.95rem] leading-7 text-ink break-all hover:text-emboss-link transition-colors duration-fast ease-out ${
+                  compact ? 'gap-3' : 'gap-5'
+                }`}
                 aria-label={item.label}
               >
-                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-emboss text-open-board">
-                  <item.Icon className="block h-3.5 w-3.5 shrink-0" />
+                <span
+                  className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-emboss text-open-board ${
+                    compact ? 'h-6 w-6' : 'h-7 w-7'
+                  }`}
+                >
+                  <item.Icon className="block h-3 w-3 shrink-0" />
                 </span>
                 <span className="min-w-0 underline underline-offset-[3px] decoration-emboss-link/40 group-hover:decoration-emboss-link">
                   {item.value}
@@ -118,25 +126,25 @@ export default function ContactDirectLinks({
 
   const dark = tone === 'dark';
   const row = dark
-    ? 'group flex items-center gap-3 font-sans text-body-s text-open-board break-all hover:text-clay-on-ink transition-colors duration-fast ease-out'
-    : 'group flex items-center gap-3 font-sans text-body text-ink break-all hover:text-emboss-link transition-colors duration-fast ease-out';
+    ? 'group flex items-start gap-3 font-sans text-body-s text-open-board hover:text-clay-on-ink transition-colors duration-fast ease-out min-w-0'
+    : 'group flex items-start gap-3 font-sans text-body text-ink hover:text-emboss-link transition-colors duration-fast ease-out min-w-0';
   const icon = dark
-    ? 'w-5 h-5 shrink-0 text-landing-stone group-hover:text-clay-on-ink transition-colors duration-fast ease-out'
-    : 'w-5 h-5 shrink-0 text-gambit-text group-hover:text-emboss-link transition-colors duration-fast ease-out';
+    ? 'w-5 h-5 shrink-0 mt-0.5 text-landing-stone group-hover:text-clay-on-ink transition-colors duration-fast ease-out'
+    : 'w-5 h-5 shrink-0 mt-0.5 text-gambit-text group-hover:text-emboss-link transition-colors duration-fast ease-out';
   const valueClass = dark
     ? undefined
     : 'underline underline-offset-[3px] decoration-emboss-link/40 group-hover:decoration-emboss-link';
 
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-col gap-3 min-w-0">
       {channels.map((key) => {
         const item = items[key];
         const underline = key === 'phone' ? undefined : valueClass;
         return (
-          <li key={key}>
+          <li key={key} className="min-w-0">
             <a href={item.href} className={row} aria-label={item.label}>
               <item.Icon className={icon} />
-              <span className={underline}>{item.value}</span>
+              <span className={`min-w-0 break-words ${underline ?? ''}`}>{item.value}</span>
             </a>
           </li>
         );

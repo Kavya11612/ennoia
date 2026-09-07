@@ -9,7 +9,7 @@ const PAGE_SIZE = 10;
 const categories = Array.from(new Set(articles.map((a) => a.category))).sort();
 
 const chipBase =
-  'inline-flex items-center font-mono text-[11px] uppercase tracking-[0.14em] min-h-[40px] px-4 py-2 rounded-full transition-colors duration-fast ease-out';
+  'inline-flex items-center font-mono text-[11px] tracking-[0.04em] min-h-[40px] px-4 py-2 rounded-full transition-colors duration-fast ease-out';
 const chipActive = 'bg-ink text-open-board';
 const chipIdle = 'bg-landing-stone/55 text-ink hover:bg-landing-stone';
 
@@ -107,12 +107,12 @@ export default function NotionsIndex({
                 {safePage > 1 ? (
                   <Link
                     href={hrefFor(active, safePage - 1)}
-                    className="font-mono text-[12px] uppercase tracking-[0.16em] text-ink min-h-[44px] inline-flex items-center"
+                    className="font-mono text-[12px] tracking-[0.04em] text-ink min-h-[44px] inline-flex items-center"
                   >
                     Previous
                   </Link>
                 ) : (
-                  <span className="font-mono text-[12px] uppercase tracking-[0.16em] text-gambit-text min-h-[44px] inline-flex items-center">
+                  <span className="font-mono text-[12px] tracking-[0.04em] text-gambit-text min-h-[44px] inline-flex items-center">
                     Previous
                   </span>
                 )}
@@ -122,12 +122,12 @@ export default function NotionsIndex({
                 {safePage < totalPages ? (
                   <Link
                     href={hrefFor(active, safePage + 1)}
-                    className="font-mono text-[12px] uppercase tracking-[0.16em] text-ink min-h-[44px] inline-flex items-center"
+                    className="font-mono text-[12px] tracking-[0.04em] text-ink min-h-[44px] inline-flex items-center"
                   >
                     Next
                   </Link>
                 ) : (
-                  <span className="font-mono text-[12px] uppercase tracking-[0.16em] text-gambit-text min-h-[44px] inline-flex items-center">
+                  <span className="font-mono text-[12px] tracking-[0.04em] text-gambit-text min-h-[44px] inline-flex items-center">
                     Next
                   </span>
                 )}
@@ -156,7 +156,7 @@ export default function NotionsIndex({
 
               {/* Badge sits outside the clip — fully visible */}
               <div className="absolute -right-3 bottom-8 z-10 flex h-[6.5rem] w-[6.5rem] items-center justify-center rounded-full bg-emboss px-3 text-center shadow-sm">
-                <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-open-board leading-relaxed">
+                <p className="font-mono text-[9px] tracking-[0.04em] text-open-board leading-relaxed">
                   Thoughts
                   <br />
                   Ideas
@@ -166,7 +166,7 @@ export default function NotionsIndex({
               </div>
             </div>
 
-            <p className="absolute bottom-2 right-2 max-w-[11ch] font-mono text-[10px] uppercase tracking-[0.18em] text-gambit-text text-right">
+            <p className="absolute bottom-2 right-2 max-w-[11ch] font-mono text-[10px] tracking-[0.04em] text-gambit-text text-right">
               A more meaningful tomorrow
             </p>
           </aside>
@@ -187,7 +187,7 @@ export default function NotionsIndex({
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 self-start bg-ink text-open-board px-5 py-3 rounded-md font-mono text-[12px] uppercase tracking-[0.14em] hover:bg-ink-hover transition-colors duration-fast ease-out min-h-[44px]"
+              className="inline-flex items-center gap-2 self-start bg-ink text-open-board px-5 py-3 rounded-md font-mono text-[12px] tracking-[0.04em] hover:bg-ink-hover transition-colors duration-fast ease-out min-h-[44px]"
             >
               Get in touch
               <span aria-hidden="true">→</span>

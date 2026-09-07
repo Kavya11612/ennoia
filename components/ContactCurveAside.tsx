@@ -3,10 +3,57 @@ import ContactDirectLinks from '@/components/ContactDirectLinks';
 import { site } from '@/lib/site';
 
 const nextSteps = [
-  'We read your note ourselves — no form routing, no account manager.',
-  'If it’s a fit, we reply within three working days with next steps.',
-  'If it’s not, we’ll tell you that too, and why, where we can.',
+  {
+    title: 'We read it',
+    body: 'Your note is read by us — no form routing, no account manager.',
+  },
+  {
+    title: 'If it’s a fit',
+    body: 'We reply within three working days with clear next steps.',
+  },
+  {
+    title: 'If it’s not',
+    body: 'We’ll say so plainly, and why, wherever we can.',
+  },
 ];
+
+function NextRoadmap() {
+  return (
+    <ol className="mt-6 relative flex flex-col pl-3 sm:pl-4">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[1.875rem] sm:left-[2.125rem] top-4 bottom-4 w-px -translate-x-1/2 bg-rule"
+      />
+
+      {nextSteps.map((step, i) => {
+        const n = String(i + 1).padStart(2, '0');
+
+        return (
+          <li
+            key={step.title}
+            className={`relative grid grid-cols-[2rem_1fr] items-start gap-x-4 sm:gap-x-5 ${
+              i === 0 ? '' : 'mt-7'
+            }`}
+          >
+            <div className="relative z-[1] flex justify-center pt-1">
+              <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink font-mono text-[9px] tracking-[0.04em] text-open-board tabular-nums shadow-[0_0_0_4px_var(--c-open-board)]">
+                {n}
+              </span>
+            </div>
+            <div className="min-w-0 pt-0.5 max-w-[28ch] sm:max-w-[32ch]">
+              <h3 className="font-sans font-semibold text-[1.05rem] leading-snug tracking-[-0.01em] text-ink">
+                {step.title}
+              </h3>
+              <p className="mt-2 font-sans text-[0.92rem] leading-[1.55] text-gambit-text">
+                {step.body}
+              </p>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
 
 function CurvedPhoto({
   src,
@@ -48,14 +95,14 @@ function CurvedPhoto({
 }
 
 /**
- * Contact aside — curved photo + Direct / next / fit (decluttered).
+ * Contact aside — curved photo + Direct / next / fit / location.
  */
 export default function ContactCurveAside() {
   return (
-    <aside className="min-w-0 flex flex-col gap-10 md:gap-10 pt-2 sm:pt-0">
+    <aside className="min-w-0 flex flex-col gap-8 pt-2 sm:pt-0 pl-2 sm:pl-4 md:pl-5 pb-2">
       <CurvedPhoto src="/contact/workspace.jpg" clipId="contact-curve-top" priority />
 
-      <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
+      <div>
         <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
           Direct
         </p>
@@ -64,27 +111,18 @@ export default function ContactCurveAside() {
         </div>
       </div>
 
-      <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
+      <div>
         <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
           What happens next?
         </p>
-        <ol className="mt-5 flex flex-col gap-5">
-          {nextSteps.map((step, i) => (
-            <li key={step} className="flex gap-5 items-start font-sans text-body text-ink">
-              <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-landing-stone/80 font-mono text-[11px] text-ink">
-                {i + 1}
-              </span>
-              <span className="min-w-0 pt-0.5 leading-relaxed">{step}</span>
-            </li>
-          ))}
-        </ol>
+        <NextRoadmap />
       </div>
 
-      <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
+      <div>
         <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
           Fit
         </p>
-        <div className="mt-5 flex flex-col gap-4 font-sans text-body text-ink leading-relaxed">
+        <div className="mt-5 flex flex-col gap-5 font-sans text-body text-ink leading-relaxed max-w-[42ch]">
           <p>
             <strong className="font-semibold">We take on:</strong> founders who need a position
             before a logo, and are willing to think deeper.
@@ -96,28 +134,22 @@ export default function ContactCurveAside() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pl-1 sm:pl-4 md:pl-6 lg:pl-8">
-        <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 items-start">
+        <div className="min-w-0">
           <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
             Based in
           </p>
-          <p className="mt-4 font-sans text-body text-ink">{site.city}</p>
+          <p className="mt-4 font-sans text-[0.95rem] leading-7 text-ink">{site.city}</p>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
             Elsewhere
           </p>
           <div className="mt-4">
-            <ContactDirectLinks tone="badge" channels={['linkedin', 'instagram']} />
+            <ContactDirectLinks tone="badge" channels={['linkedin', 'instagram']} compact />
           </div>
         </div>
       </div>
-
-      <CurvedPhoto
-        src="/contact/desk-plants.jpg"
-        clipId="contact-curve-bottom"
-        minClass="min-h-[200px] sm:min-h-[240px]"
-      />
     </aside>
   );
 }

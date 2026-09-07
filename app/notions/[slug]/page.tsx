@@ -51,7 +51,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
       <header className="page-x pt-7 pb-6 max-w-container mx-auto">
         <div className="max-w-prose flex flex-col gap-4">
-          <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase tracking-[0.12em] text-gambit-text leading-relaxed">
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] tracking-[0.04em] text-gambit-text leading-relaxed">
             <span>{article.category}</span>
             {SHOW_DATES && (
               <>
@@ -68,7 +68,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           </p>
           <h1 className="font-sans font-bold text-h1 text-ink">{article.title}</h1>
           <p className="font-sans text-body-l text-ink">{article.standfirst}</p>
-          <p className="font-mono text-meta uppercase tracking-[0.1em] text-gambit-text">
+          <p className="font-mono text-meta tracking-[0.04em] text-gambit-text">
             By {article.author}
           </p>
         </div>

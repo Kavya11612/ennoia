@@ -10,9 +10,11 @@ const coverBySlug: Record<string, string> = {
 };
 
 function formatDate(iso: string) {
-  return new Date(iso)
-    .toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
-    .toUpperCase();
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
 }
 
 function ArticleMeta({
@@ -26,16 +28,12 @@ function ArticleMeta({
   mins: number;
   showDate: boolean;
 }) {
-  const parts = [
-    category.toUpperCase(),
-    showDate ? date : null,
-    `${mins} MIN READ`,
-  ].filter(Boolean) as string[];
+  const parts = [category, showDate ? date : null, `${mins} min read`].filter(Boolean) as string[];
 
   return (
-    <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[11px] uppercase tracking-[0.12em] text-gambit-text leading-relaxed">
+    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[11px] tracking-[0.04em] text-gambit-text leading-relaxed">
       {parts.map((part, i) => (
-        <span key={`${part}-${i}`} className="inline-flex items-center gap-x-2.5">
+        <span key={`${part}-${i}`} className="inline-flex items-center gap-x-2">
           {i > 0 && (
             <span className="text-rule select-none" aria-hidden="true">
               ·
@@ -73,7 +71,7 @@ export default function ArticleCard({
         <div className="flex flex-col gap-3 max-w-[68ch]">
           <ArticleMeta
             category={article.category}
-            date={dateShort.toUpperCase()}
+            date={dateShort}
             mins={mins}
             showDate={showDate}
           />
@@ -97,7 +95,7 @@ export default function ArticleCard({
   );
 
   const copy = (
-    <div className="flex flex-1 flex-col gap-2.5 min-w-0 py-0.5">
+    <div className="flex flex-1 flex-col gap-2 min-w-0 py-0.5">
       <ArticleMeta
         category={article.category}
         date={formatDate(article.date)}
@@ -110,7 +108,7 @@ export default function ArticleCard({
       <p className="font-sans text-[0.9rem] leading-relaxed text-gambit-text line-clamp-2 md:line-clamp-3">
         {article.standfirst}
       </p>
-      <span className="mt-1.5 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.14em] text-ink">
+      <span className="mt-2 inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.04em] text-ink">
         Read the article
         <span className="h-px w-12 md:w-16 bg-ink/40" aria-hidden="true" />
         <span aria-hidden="true">→</span>

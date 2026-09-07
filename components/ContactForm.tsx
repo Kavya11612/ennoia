@@ -135,15 +135,15 @@ export default function ContactForm({
         />
       </Field>
 
-      <fieldset className="flex flex-col gap-3">
-        <legend className="font-mono text-[12px] tracking-[0.02em] text-gambit-text">
+      <fieldset className="flex flex-col">
+        <legend className="mb-0 p-0 font-mono text-[12px] tracking-[0.02em] text-gambit-text">
           What kind of help?
         </legend>
-        <div className="flex flex-col gap-2.5">
+        <div className="mt-3 flex flex-col gap-3">
           {helpOptions.map((opt) => (
-            <label key={opt} className="flex items-center gap-3 font-sans text-body text-ink cursor-pointer">
-              <input type="checkbox" name="help" value={opt} className="h-4 w-4 accent-ink" />
-              {opt}
+            <label key={opt} className="flex items-center gap-4 font-sans text-body text-ink cursor-pointer">
+              <input type="checkbox" name="help" value={opt} className="h-4 w-4 shrink-0 accent-ink" />
+              <span>{opt}</span>
             </label>
           ))}
         </div>

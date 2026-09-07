@@ -84,7 +84,7 @@ export default function HomePractices({ practices }: { practices: Practice[] }) 
       <header className="max-w-[36rem]">
         <div className="flex items-center gap-3">
           <span className="h-px w-8 bg-rule" aria-hidden="true" />
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gambit-text">What we do</p>
+          <p className="font-mono text-[12px] tracking-[0.04em] text-gambit-text">What we do</p>
         </div>
         <h2 className="mt-3 font-sans font-bold text-[1.45rem] md:text-[1.7rem] text-ink tracking-[-0.02em] text-balance max-w-[16ch]">
           Ideas that build stronger brands.

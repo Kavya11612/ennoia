@@ -44,10 +44,6 @@ export default function ContactPage({
             <ContactCurveAside />
           </div>
         </div>
-
-        <p className="mt-16 md:mt-20 pt-8 pb-2 border-t border-rule font-mono text-[13px] md:text-sm tracking-[0.04em] text-gambit-text leading-relaxed">
-          Better brands for a clearer tomorrow
-        </p>
       </section>
     </>
   );

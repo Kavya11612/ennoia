@@ -38,19 +38,35 @@ export default function StudioPage() {
 
       {/* S2 Practices */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
+        <header className="max-w-[36rem] mb-7 md:mb-8">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-rule shrink-0" aria-hidden="true" />
+            <p className="font-mono text-[13px] md:text-[14px] tracking-[0.04em] text-gambit-text">
+              What we do
+            </p>
+          </div>
+          <h2 className="mt-3 font-sans font-bold text-[1.75rem] md:text-[2rem] text-ink tracking-[-0.02em] text-balance leading-[1.15]">
+            Four practices. One position.
+          </h2>
+          <p className="mt-2 font-sans text-body md:text-body-l leading-relaxed text-gambit-text">
+            Strategy through experience — each step builds on the last.
+          </p>
+        </header>
         <WhatWeDoList practices={practices} />
       </section>
 
       {/* S3 Five-stage methodology — Website PRD */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <h2 className="font-sans font-bold text-h2 text-ink max-w-[20ch] text-balance">
-          From insight to impact.
-        </h2>
-        <p className="mt-3 font-sans text-body-l text-ink max-w-standfirst">
-          Five stages. The named methodology is still in development — until it exists, this is the
-          process as it actually runs.
-        </p>
-        <div className="mt-6">
+        <header className="max-w-[36rem]">
+          <h2 className="font-sans font-bold text-[1.75rem] md:text-[2rem] text-ink text-balance tracking-[-0.02em] leading-[1.15]">
+            From insight to impact.
+          </h2>
+          <p className="mt-3 font-sans text-body md:text-body-l text-gambit-text">
+            Five stages. The named methodology is still in development — until it exists, this is the
+            process as it actually runs.
+          </p>
+        </header>
+        <div className="mt-6 md:mt-8">
           <ProcessStages />
         </div>
       </section>
@@ -67,26 +83,16 @@ export default function StudioPage() {
         </div>
       </section>
 
-      {/* S6 Sectors — Industries we serve (mockup; no third-party studio mark) */}
+      {/* S6 Sectors */}
       <StudioSectors />
-
-      {/* S7 Entity */}
-      <section className="page-x py-6 max-w-container mx-auto">
-        <div className="border-t border-rule pt-5 flex flex-col gap-1 font-mono text-[12px] text-gambit-text">
-          <p>Ennoia Branding Private Limited</p>
-          <p>Registered office: Hyderabad, Telangana, India</p>
-          <p>CIN: [TO BE SUPPLIED]</p>
-          <p>GSTIN: [TO BE SUPPLIED]</p>
-        </div>
-      </section>
 
       {/* S8 CTA */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 border-t border-rule pt-6">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 border-t border-rule pt-6">
           <p className="font-sans text-h3 font-semibold text-ink max-w-[36ch]">
             If this sounds like how you want to build, let&rsquo;s talk.
           </p>
-          <Button href="/contact" variant="filled">
+          <Button href="/contact" variant="filled" className="self-start md:self-auto shrink-0">
             Find your move
           </Button>
         </div>

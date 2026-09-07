@@ -119,11 +119,11 @@ export default function HypotheticalsIndex({ projects }: { projects: Project[] }
       </section>
 
       <section className="page-x py-5 md:py-6 max-w-container mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 border-t border-rule pt-5">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 border-t border-rule pt-5">
           <p className="font-sans text-h3 font-semibold text-ink max-w-[36ch]">
             Have a real position that needs finding?
           </p>
-          <Button href="/contact" variant="filled">
+          <Button href="/contact" variant="filled" className="self-start md:self-auto shrink-0">
             Find your move
           </Button>
         </div>

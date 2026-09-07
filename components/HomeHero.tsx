@@ -39,7 +39,7 @@ export default function HomeHero() {
             <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:min-h-[min(62vh,560px)] overflow-hidden bg-ink hero-block rounded-sm">
               <Image
                 src="/hero-illustration.jpg"
-                alt="Strategy to brand — promise, action, and product made visible"
+                alt="Strategist at a desk facing a board with a chess knight — insight, strategy, and brand converging into ideas, execution, and meaningful outcomes"
                 fill
                 priority
                 quality={92}

@@ -31,38 +31,38 @@ export default function StudioPhilosophy() {
     >
       <div className="philosophy-atmosphere absolute inset-0" aria-hidden="true" />
 
-      <div className="relative z-10 page-x max-w-container mx-auto py-8 md:py-10">
-        <header className="philosophy-rise max-w-[34rem]">
+      <div className="relative z-10 page-x max-w-container mx-auto py-7 md:py-8">
+        <header className="philosophy-rise max-w-[36rem]">
           <h2
             id="philosophy-heading"
-            className="font-sans font-bold text-[1.75rem] md:text-h2 text-ink tracking-[-0.02em] text-balance"
+            className="font-sans font-bold text-[1.85rem] md:text-[2.15rem] text-ink tracking-[-0.02em] text-balance leading-[1.12]"
           >
             Ideas. Strategy. Design.
           </h2>
-          <p className="mt-3 font-sans text-body-l italic text-emboss max-w-[28ch]">
+          <p className="mt-3 font-sans text-[1.1rem] md:text-body-l italic text-emboss max-w-[30ch] leading-snug">
             We turn visions into meaningful brands.
           </p>
         </header>
 
-        <div className="philosophy-rise philosophy-rise--delay mt-9 md:mt-11 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+        <div className="philosophy-rise philosophy-rise--delay mt-7 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-0">
           {pillars.map((p, i) => (
             <article
               key={p.n}
-              className={`flex flex-col gap-3 md:px-5 lg:px-7 first:md:pl-0 last:md:pr-0 ${
+              className={`flex flex-col gap-4 md:px-5 lg:px-7 first:md:pl-0 last:md:pr-0 ${
                 i > 0 ? 'md:border-l md:border-rule/90' : ''
               }`}
             >
-              <div className="flex items-center gap-2.5">
-                <span className="font-mono text-meta tabular-nums tracking-[0.08em] text-emboss">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[13px] md:text-[14px] tabular-nums tracking-[0.04em] text-emboss">
                   {p.n}
                 </span>
-                <span className="font-mono text-meta uppercase tracking-[0.16em] text-gambit-text">
+                <span className="font-mono text-[13px] md:text-[14px] tracking-[0.04em] text-gambit-text">
                   {p.label}
                 </span>
                 <span className="h-px min-w-[1.5rem] flex-1 bg-rule" aria-hidden="true" />
               </div>
 
-              <h3 className="font-sans font-semibold text-[1.2rem] md:text-[1.35rem] leading-[1.25] text-ink">
+              <h3 className="font-sans font-semibold text-[1.35rem] md:text-[1.5rem] leading-[1.3] tracking-[-0.015em] text-ink">
                 {p.lines.map((line) => (
                   <span key={line} className="block">
                     {line}
@@ -70,20 +70,20 @@ export default function StudioPhilosophy() {
                 ))}
               </h3>
 
-              <p className="font-sans text-[0.95rem] leading-relaxed text-gambit-text max-w-[34ch]">
+              <p className="font-sans text-[1rem] md:text-[1.05rem] leading-[1.65] text-gambit-text max-w-[36ch]">
                 {p.body}
               </p>
             </article>
           ))}
         </div>
 
-        <div className="philosophy-rise philosophy-rise--late mt-10 md:mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-rule/70 pt-5">
+        <div className="philosophy-rise philosophy-rise--late mt-7 md:mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-rule/70 pt-5">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.16em] text-ink hover:text-emboss-link transition-colors duration-fast ease-out min-h-[44px]"
+            className="group inline-flex items-center gap-3 font-mono text-[13px] md:text-[14px] tracking-[0.04em] text-ink hover:text-emboss-link transition-colors duration-fast ease-out min-h-[44px]"
           >
             <span
-              className="inline-flex h-8 w-8 items-center justify-center border border-rule text-emboss transition-colors duration-fast group-hover:border-emboss"
+              className="inline-flex h-9 w-9 items-center justify-center border border-rule text-emboss transition-colors duration-fast group-hover:border-emboss"
               aria-hidden="true"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

@@ -3,7 +3,6 @@ import ProjectBannerCard from '@/components/ProjectBannerCard';
 import Button from '@/components/Button';
 import { projects } from '@/lib/data/projects';
 import { practices } from '@/lib/data/practices';
-import { sectors } from '@/lib/data/sectors';
 import HomePractices from '@/components/HomePractices';
 import ProcessStages from '@/components/ProcessStages';
 import ContactCTA from '@/components/ContactCTA';
@@ -86,25 +85,25 @@ export default function HomePage() {
       </section>
 
       {/* H5 How we work */}
-      <section className="page-x py-10 md:py-12 max-w-container mx-auto">
-        <header className="max-w-[36rem]">
+      <section className="page-x py-7 md:py-8 max-w-container mx-auto">
+        <header className="pl-3 sm:pl-5 md:pl-8 max-w-[38rem]">
           <div className="flex items-center gap-3">
-            <span className="h-px w-8 bg-rule" aria-hidden="true" />
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gambit-text">
+            <span className="h-px w-8 bg-rule shrink-0" aria-hidden="true" />
+            <p className="font-mono text-[15px] md:text-[16px] tracking-[0.04em] text-gambit-text">
               How we work
             </p>
           </div>
-          <h2 className="mt-4 font-sans font-bold text-[1.65rem] md:text-h2 text-ink tracking-[-0.02em] text-balance max-w-[16ch]">
+          <h2 className="mt-2 font-sans font-bold text-[1.75rem] md:text-[2rem] text-ink tracking-[-0.02em] text-balance leading-[1.15]">
             From insight to impact.
           </h2>
-          <p className="mt-4 font-sans text-[1.05rem] md:text-body-l leading-relaxed text-gambit-text max-w-standfirst">
+          <p className="mt-2 font-sans text-body md:text-body-l leading-relaxed text-gambit-text">
             Five stages — from reading the category to applying the brand where customers live.
           </p>
         </header>
-        <div className="mt-10 md:mt-12">
+        <div className="mt-5 md:mt-6">
           <ProcessStages compact />
         </div>
-        <div className="mt-5">
+        <div className="mt-4 pl-3 sm:pl-5 md:pl-8">
           <Button href="/studio" variant="text">
             More on our process
           </Button>
@@ -134,18 +133,6 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-      </section>
-
-      {/* H7 Sectors */}
-      <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-5 max-w-[900px]">
-          {sectors.map((sector) => (
-            <li key={sector.slug} className="border-t border-rule pt-4">
-              <h3 className="font-sans font-semibold text-h3 text-ink">{sector.name}</h3>
-              <p className="mt-2 font-sans text-body text-ink">{sector.description}</p>
-            </li>
-          ))}
-        </ul>
       </section>
 
       {/* Close */}

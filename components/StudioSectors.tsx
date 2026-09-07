@@ -11,7 +11,7 @@ const sectorImages: Record<string, string> = {
 };
 
 const icons = [
-  <svg key="bag" viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+  <svg key="bag" viewBox="0 0 24 24" fill="none" className="h-3 w-3" aria-hidden="true">
     <path
       d="M7 8V7a5 5 0 0 1 10 0v1M6 8h12l-.8 11.2a2 2 0 0 1-2 1.8H8.8a2 2 0 0 1-2-1.8L6 8Z"
       stroke="currentColor"
@@ -19,7 +19,7 @@ const icons = [
       strokeLinejoin="round"
     />
   </svg>,
-  <svg key="bank" viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+  <svg key="bank" viewBox="0 0 24 24" fill="none" className="h-3 w-3" aria-hidden="true">
     <path
       d="M4 10h16M6 10v8M10 10v8M14 10v8M18 10v8M3 18h18M12 4l9 6H3l9-6Z"
       stroke="currentColor"
@@ -27,7 +27,7 @@ const icons = [
       strokeLinejoin="round"
     />
   </svg>,
-  <svg key="bulb" viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+  <svg key="bulb" viewBox="0 0 24 24" fill="none" className="h-3 w-3" aria-hidden="true">
     <path
       d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.8c.6.5 1 1.2 1.1 2v.2h4.8v-.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3Z"
       stroke="currentColor"
@@ -35,7 +35,7 @@ const icons = [
       strokeLinejoin="round"
     />
   </svg>,
-  <svg key="leaf" viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+  <svg key="leaf" viewBox="0 0 24 24" fill="none" className="h-3 w-3" aria-hidden="true">
     <path
       d="M5 19c8-1 12-6 13-14-7 1-13 5-13 14Z"
       stroke="currentColor"
@@ -44,7 +44,7 @@ const icons = [
     />
     <path d="M5 19c3-4 7-7 12-9" stroke="currentColor" strokeWidth="1.4" />
   </svg>,
-  <svg key="people" viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" aria-hidden="true">
+  <svg key="people" viewBox="0 0 24 24" fill="none" className="h-3 w-3" aria-hidden="true">
     <circle cx="9" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.4" />
     <circle cx="16" cy="9" r="2" stroke="currentColor" strokeWidth="1.4" />
     <path
@@ -57,24 +57,23 @@ const icons = [
 ];
 
 /**
- * Studio S6 — Industries We Serve (mockup grid, compact).
- * Uses sector images from the provided mockup. No third-party studio mark.
+ * Studio S6 — Industries we serve (full-width aligned grid).
  */
 export default function StudioSectors() {
   return (
     <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-        <header className="max-w-[34rem]">
-          <h2 className="font-sans font-bold text-[1.5rem] md:text-[1.85rem] text-ink tracking-[-0.02em] text-balance">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+        <header className="max-w-[40rem]">
+          <h2 className="font-sans font-bold text-[1.75rem] md:text-[2rem] text-ink tracking-[-0.02em] text-balance leading-[1.15]">
             Industries we serve
           </h2>
-          <p className="mt-2 font-sans text-[0.95rem] leading-relaxed text-gambit-text max-w-standfirst">
+          <p className="mt-3 font-sans text-body md:text-body-l leading-relaxed text-gambit-text">
             Different industries. Same goal — stronger brands. We create design and strategy that
             works across sectors.
           </p>
         </header>
 
-        <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-gambit-text lg:pt-1 lg:max-w-[16ch] lg:text-right">
+        <p className="flex items-center gap-2 font-mono text-[12px] md:text-[13px] tracking-[0.04em] text-gambit-text lg:max-w-[18ch] lg:text-right lg:justify-end">
           <svg
             width="10"
             height="10"
@@ -89,39 +88,39 @@ export default function StudioSectors() {
         </p>
       </div>
 
-      <ul className="mt-7 md:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-7 max-w-[860px]">
+      <ul className="mt-7 md:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-8 gap-y-8">
         {sectors.map((sector, i) => {
           const src = sectorImages[sector.slug];
           return (
-            <li key={sector.slug} className="flex flex-col max-w-[240px]">
+            <li key={sector.slug} className="flex h-full min-w-0 flex-col">
               <div
-                className="relative aspect-[4/5] w-full max-w-[168px] overflow-hidden bg-landing-stone"
-                style={{ borderRadius: '999px 999px 6px 6px' }}
+                className="relative aspect-[4/5] w-full max-w-[14rem] overflow-hidden bg-landing-stone"
+                style={{ borderRadius: '999px 999px 8px 8px' }}
               >
                 {src ? (
                   <Image
                     src={src}
                     alt=""
                     fill
-                    sizes="168px"
+                    sizes="(max-width: 1024px) 50vw, 280px"
                     className="object-cover object-center"
                   />
                 ) : null}
               </div>
 
-              <div className="mt-3 flex flex-col gap-1.5">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-rule text-emboss">
+              <div className="mt-4 flex flex-1 flex-col gap-2 min-w-0">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-rule text-emboss">
                   {icons[i % icons.length]}
                 </span>
-                <h3 className="font-sans font-semibold text-[1.05rem] leading-snug text-ink text-balance">
+                <h3 className="font-sans font-semibold text-[1.15rem] md:text-[1.25rem] leading-snug text-ink text-balance">
                   {sector.name}
                 </h3>
-                <p className="font-sans text-[0.875rem] leading-relaxed text-gambit-text">
+                <p className="font-sans text-[0.95rem] md:text-body leading-relaxed text-gambit-text">
                   {sector.description}
                 </p>
                 <Link
                   href={`/hypotheticals?sector=${sector.slug}`}
-                  className="mt-0.5 inline-flex h-8 w-8 items-center justify-center text-emboss hover:text-ink transition-colors duration-fast ease-out"
+                  className="mt-auto pt-3 inline-flex h-9 w-9 items-center justify-center text-emboss hover:text-ink transition-colors duration-fast ease-out"
                   aria-label={`View ${sector.name} work`}
                 >
                   <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
@@ -139,30 +138,24 @@ export default function StudioSectors() {
           );
         })}
 
-        <li className="relative flex min-h-[200px] max-w-[240px] flex-col justify-end overflow-hidden rounded-md bg-card px-4 py-5">
+        <li className="relative flex min-h-[16rem] min-w-0 flex-col justify-end overflow-hidden rounded-md bg-card border border-rule px-5 py-6">
           <div
             className="pointer-events-none absolute -right-6 -top-4 h-28 w-28 rounded-full border border-rule"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute -bottom-4 -right-3 h-20 w-16 text-emboss/45"
+            className="pointer-events-none absolute -bottom-4 -right-3 h-24 w-20 text-emboss/45"
             aria-hidden="true"
           >
             <svg viewBox="0 0 80 100" className="h-full w-full" fill="currentColor">
               <path d="M36 95 C34 70 28 48 40 16 C52 10 62 28 54 48 C70 52 74 70 62 82 C50 92 38 90 36 95Z" />
             </svg>
           </div>
-          <p className="relative font-sans text-[1.15rem] italic font-semibold text-ink leading-snug max-w-[11ch]">
+          <p className="relative font-sans text-[1.35rem] md:text-[1.5rem] italic font-semibold text-ink leading-snug max-w-[12ch]">
             Strategy meets creativity.
           </p>
         </li>
       </ul>
-
-      <div className="mt-7 md:mt-8 flex justify-end border-t border-rule pt-4 max-w-[860px]">
-        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gambit-text">
-          Brands / Strategy / Design / Digital
-        </p>
-      </div>
     </section>
   );
 }

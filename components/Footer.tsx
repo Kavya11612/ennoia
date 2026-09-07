@@ -15,8 +15,8 @@ export default function Footer() {
   return (
     <footer className="bg-ink text-open-board">
       <div className="max-w-container mx-auto page-x py-6 md:py-7">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-5">
-          <div className="md:col-span-4 flex flex-col gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-5">
+          <div className="md:col-span-4 flex flex-col gap-3 min-w-0">
             <Logo reversed />
             <p className="font-sans text-body-s text-landing-stone max-w-[40ch]">
               For founders who need a position, not just a logo, Ennoia is the strategy-led branding
@@ -25,8 +25,8 @@ export default function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer" className="md:col-span-3 flex flex-col gap-3">
-            <span className="font-mono text-meta uppercase tracking-[0.16em] text-landing-stone mb-1">
+          <nav aria-label="Footer" className="md:col-span-3 flex flex-col gap-3 min-w-0">
+            <span className="font-mono text-meta tracking-[0.08em] text-landing-stone mb-1">
               Site
             </span>
             {navLinks.map((link) => (
@@ -40,8 +40,8 @@ export default function Footer() {
             ))}
           </nav>
 
-          <div className="md:col-span-3 flex flex-col gap-3">
-            <span className="font-mono text-meta uppercase tracking-[0.16em] text-landing-stone mb-1">
+          <div className="md:col-span-3 flex flex-col gap-3 min-w-0">
+            <span className="font-mono text-meta tracking-[0.08em] text-landing-stone mb-1">
               Direct
             </span>
             <ContactDirectLinks
@@ -50,8 +50,8 @@ export default function Footer() {
             />
           </div>
 
-          <div className="md:col-span-2 flex flex-col gap-3">
-            <span className="font-mono text-meta uppercase tracking-[0.16em] text-landing-stone mb-1">
+          <div className="md:col-span-2 flex flex-col gap-3 min-w-0">
+            <span className="font-mono text-meta tracking-[0.08em] text-landing-stone mb-1">
               Legal
             </span>
             <Link
@@ -69,12 +69,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-5 pt-6 border-t border-landing-stone/20 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div className="mt-5 pt-6 pb-2 border-t border-landing-stone/20">
           <p className="font-mono text-[12px] text-landing-stone">
-            Ennoia Branding Private Limited · Hyderabad, India · CIN [TO BE SUPPLIED]
-          </p>
-          <p className="font-mono text-[12px] text-landing-stone">
-            © {new Date().getFullYear()} Ennoia
+            Ennoia Branding Studio
           </p>
         </div>
       </div>
