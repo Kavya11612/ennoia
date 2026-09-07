@@ -56,7 +56,7 @@ export default function ContactCurveAside() {
       <CurvedPhoto src="/contact/workspace.jpg" clipId="contact-curve-top" priority />
 
       <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
+        <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
           Direct
         </p>
         <div className="mt-5">
@@ -65,7 +65,7 @@ export default function ContactCurveAside() {
       </div>
 
       <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
+        <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
           What happens next?
         </p>
         <ol className="mt-5 flex flex-col gap-5">
@@ -81,7 +81,7 @@ export default function ContactCurveAside() {
       </div>
 
       <div className="pl-1 sm:pl-4 md:pl-6 lg:pl-8">
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
+        <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
           Fit
         </p>
         <div className="mt-5 flex flex-col gap-4 font-sans text-body text-ink leading-relaxed">
@@ -98,13 +98,13 @@ export default function ContactCurveAside() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pl-1 sm:pl-4 md:pl-6 lg:pl-8">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
+          <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
             Based in
           </p>
           <p className="mt-4 font-sans text-body text-ink">{site.city}</p>
         </div>
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gambit-text border-b border-rule pb-3">
+          <p className="font-mono text-[11px] tracking-[0.04em] text-gambit-text border-b border-rule pb-3">
             Elsewhere
           </p>
           <div className="mt-4">

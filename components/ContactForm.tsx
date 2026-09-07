@@ -28,7 +28,7 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2 relative z-10">
-      <label htmlFor={htmlFor} className="font-mono text-[12px] uppercase tracking-[0.1em] text-gambit-text">
+      <label htmlFor={htmlFor} className="font-mono text-[12px] tracking-[0.02em] text-gambit-text">
         {label}
       </label>
       {children}
@@ -136,7 +136,7 @@ export default function ContactForm({
       </Field>
 
       <fieldset className="flex flex-col gap-3">
-        <legend className="font-mono text-[12px] uppercase tracking-[0.1em] text-gambit-text">
+        <legend className="font-mono text-[12px] tracking-[0.02em] text-gambit-text">
           What kind of help?
         </legend>
         <div className="flex flex-col gap-2.5">
@@ -210,7 +210,7 @@ export default function ContactForm({
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-3 pb-2">
         <button
           type="submit"
-          className="self-start inline-flex items-center gap-2 bg-ink text-open-board px-6 py-3 rounded-md font-mono text-[12px] uppercase tracking-[0.14em] hover:bg-ink-hover transition-colors duration-fast ease-out min-h-[44px]"
+          className="self-start inline-flex items-center gap-2 bg-ink text-open-board px-6 py-3 rounded-md font-mono text-[12px] tracking-[0.04em] hover:bg-ink-hover transition-colors duration-fast ease-out min-h-[44px]"
         >
           Send message
           <span aria-hidden="true">→</span>

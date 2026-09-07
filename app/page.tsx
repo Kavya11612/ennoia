@@ -1,11 +1,9 @@
 ﻿import type { Metadata } from 'next';
 import ProjectBannerCard from '@/components/ProjectBannerCard';
-import ArticleCard from '@/components/ArticleCard';
 import Button from '@/components/Button';
 import { projects } from '@/lib/data/projects';
 import { practices } from '@/lib/data/practices';
 import { sectors } from '@/lib/data/sectors';
-import { articles } from '@/lib/data/articles';
 import HomePractices from '@/components/HomePractices';
 import ProcessStages from '@/components/ProcessStages';
 import ContactCTA from '@/components/ContactCTA';
@@ -20,9 +18,6 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const selected = [...projects].sort((a, b) => a.featuredOrder - b.featuredOrder).slice(0, 4);
-  const recentArticles = [...articles]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
 
   const organizationJsonLd = {
     '@context': 'https://schema.org',
@@ -37,7 +32,7 @@ export default function HomePage() {
       site.instagram,
     ],
     email: site.email,
-    telephone: '+91 6305206827',
+    telephone: '+91 630 520 6827',
   };
 
   return (
@@ -153,21 +148,7 @@ export default function HomePage() {
         </ul>
       </section>
 
-      {/* H8 Writing */}
-      <section className="page-x py-7 md:py-8 max-w-container mx-auto">
-        <div className="max-w-prose">
-          {recentArticles.map((article) => (
-            <ArticleCard key={article.slug} article={article} />
-          ))}
-        </div>
-        <div className="mt-5">
-          <Button href="/notions" variant="secondary">
-            All notions
-          </Button>
-        </div>
-      </section>
-
-      {/* H9 Close */}
+      {/* Close */}
       <ContactCTA />
     </>
   );

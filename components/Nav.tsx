@@ -72,12 +72,7 @@ export default function Nav() {
           aria-label="Primary"
           className="relative z-[101] flex items-center justify-between page-x py-4 max-w-container mx-auto bg-open-board"
         >
-          <div className="hidden md:block">
-            <Logo />
-          </div>
-          <div className="md:hidden">
-            <Logo compact />
-          </div>
+          <Logo />
 
           <ul className="hidden md:flex items-center gap-7">
             {links.map((link) => {
