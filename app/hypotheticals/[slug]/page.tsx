@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import DisclosureBanner from '@/components/DisclosureBanner';
 import SectionKicker from '@/components/SectionKicker';
-import HypotheticalTag from '@/components/HypotheticalTag';
 import Reveal from '@/components/Reveal';
+import ProjectDetailBanner from '@/components/ProjectDetailBanner';
 import { projects, getProjectBySlug } from '@/lib/data/projects';
 
 export function generateStaticParams() {
@@ -65,24 +65,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
       {isHypothetical && <DisclosureBanner brandName={project.brandName} />}
 
       <section className="page-x pt-5 md:pt-6 pb-5 max-w-container mx-auto">
-        <div className="flex flex-col gap-2 max-w-[900px]">
-          <div className="flex items-center gap-3 flex-wrap">
-            {isHypothetical && <HypotheticalTag />}
-            <span className="font-mono text-meta uppercase tracking-[0.12em] text-gambit-text">
-              {project.sector}
-            </span>
-          </div>
-          <h1 className="font-sans font-bold text-h1 text-ink">{project.brandName}</h1>
-          <p className="mt-2 font-sans text-body-l text-ink max-w-standfirst">{project.oneLiner}</p>
-          <p className="font-mono text-meta uppercase tracking-[0.1em] text-gambit-text">
-            {project.practices.join(' · ')}
-          </p>
-        </div>
-        <div className="mt-4 aspect-[16/9] w-full bg-clay flex items-end p-4 md:p-5">
-          <span className="font-mono text-[12px] uppercase tracking-[0.16em] text-ink/70">
-            {project.brandName} — concept study
-          </span>
-        </div>
+        <ProjectDetailBanner project={project} index={currentIndex >= 0 ? currentIndex : 0} />
       </section>
 
       <Section kicker="The brief we set ourselves">

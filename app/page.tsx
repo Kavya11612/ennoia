@@ -1,7 +1,6 @@
-﻿import Image from 'next/image';
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import SectionKicker from '@/components/SectionKicker';
-import ProjectCard from '@/components/ProjectCard';
+import ProjectBannerCard from '@/components/ProjectBannerCard';
 import ArticleCard from '@/components/ArticleCard';
 import Button from '@/components/Button';
 import { projects } from '@/lib/data/projects';
@@ -11,6 +10,7 @@ import { articles } from '@/lib/data/articles';
 import HomePractices from '@/components/HomePractices';
 import ProcessStages from '@/components/ProcessStages';
 import ContactCTA from '@/components/ContactCTA';
+import HomeHero from '@/components/HomeHero';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -49,44 +49,8 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
-      {/* H1 Hero — Website PRD §9.1 + Brandkit voice */}
-      <section className="relative z-0 page-x pt-7 md:pt-8 pb-7 md:pb-8 max-w-container mx-auto overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-6 items-start">
-          <div className="lg:col-span-7 flex flex-col gap-5">
-            <span className="font-mono text-eyebrow uppercase tracking-[0.16em] text-gambit-text">
-              Brand strategy for founders — Hyderabad
-            </span>
-
-            <h1 className="font-sans font-bold text-display text-ink">
-              Founders don&rsquo;t need another logo. They need the position competitors can&rsquo;t
-              copy.
-            </h1>
-
-            <p className="font-sans text-body-l text-ink max-w-[52ch]">
-              We find the move others miss. Then we build the brand around it — naming, identity,
-              and experience, verified before it ships.
-            </p>
-
-            <div>
-              <Button href="/contact" variant="filled">
-                Find your move
-                <span aria-hidden="true">→</span>
-              </Button>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="relative aspect-square w-full max-w-[420px] mx-auto lg:mx-0 lg:ml-auto">
-              <div className="absolute inset-0 bg-landing-stone" />
-              <div className="absolute top-[10%] left-[8%] w-[62%] h-[62%] bg-clay" />
-              <div className="absolute bottom-[8%] right-[6%] w-[46%] h-[46%] bg-card border border-rule flex items-center justify-center">
-                <Image src="/ennoia-mark.svg" alt="The Ennoia mark" width={96} height={96} priority />
-              </div>
-              <div className="absolute top-[6%] right-[10%] w-[30%] h-[2px] bg-emboss" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* H1 Hero — split Brandkit composition */}
+      <HomeHero />
 
       {/* H2 Positioning — locked Website PRD statement + Brandkit board language */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
@@ -111,9 +75,9 @@ export default function HomePage() {
           Self-initiated projects. The brands are invented; the problems are not.
         </p>
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-6">
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-5 lg:gap-x-6 gap-y-5">
           {selected.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
+            <ProjectBannerCard key={project.slug} project={project} index={i} />
           ))}
         </div>
 
@@ -135,7 +99,14 @@ export default function HomePage() {
       {/* H5 How we work */}
       <section className="page-x py-7 md:py-8 max-w-container mx-auto">
         <SectionKicker>How we work</SectionKicker>
-        <div className="mt-5">
+        <h2 className="mt-4 font-sans font-bold text-h2 text-ink max-w-[20ch] text-balance">
+          From insight to impact.
+        </h2>
+        <p className="mt-3 font-sans text-body-l text-ink max-w-standfirst">
+          Five stages — from reading the category to applying the brand where customers actually meet
+          it.
+        </p>
+        <div className="mt-6">
           <ProcessStages compact />
         </div>
         <div className="mt-5">

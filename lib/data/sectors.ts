@@ -21,4 +21,9 @@ export const sectors: Sector[] = [
     name: 'Climate & industrial',
     description: 'Genuinely sustainable products sold into conservative, standards-driven buying processes.',
   },
+  {
+    slug: 'lifestyle-wellness',
+    name: 'Lifestyle & wellness',
+    description: 'Brands built around better living, mental clarity and long-term value.',
+  },
 ];
